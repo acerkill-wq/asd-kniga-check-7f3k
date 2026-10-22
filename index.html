@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#182649">
+<title>Проверка книги</title>
+<link rel="icon" href="./logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Вход -->
+<main id="login" class="login" hidden>
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <img class="login-logo" src="./logo.png" alt="Академия Сметного Дела" width="218" height="63">
+    <h1>Проверка книги</h1>
+    <p class="login-sub">для эксперта · «Первый шаг в сметное дело», версия <span id="loginVer"></span></p>
+    <label for="code">Код доступа</label>
+    <input id="code" type="password" autocomplete="off" inputmode="text" placeholder="Введите код из письма">
+    <label for="uname">Ваше имя</label>
+    <input id="uname" type="text" autocomplete="name" placeholder="Например: Ольга Петровна">
+    <p class="login-err" id="loginErr" role="alert" hidden></p>
+    <button class="btn btn-primary btn-xl" type="submit">Войти</button>
+  </form>
+</main>
+
+<!-- Приложение -->
+<div id="app" hidden>
+  <header class="top">
+    <button class="btn btn-ghost menu-btn" id="btnChapters" aria-controls="side" aria-expanded="false">☰ <span>Главы</span></button>
+    <img class="top-logo" src="./logo.png" alt="Академия Сметного Дела" width="130" height="38">
+    <div class="top-title">Проверка книги<small id="whoami"></small></div>
+    <button class="btn btn-ghost" id="btnMenu">Файл<span class="long"> правок</span> ⋯</button>
+  </header>
+
+  <div class="scrim" id="scrim"></div>
+  <aside class="side" id="side" aria-label="Главы книги">
+    <div class="side-total">
+      <div class="side-total-row"><b>Всего проверено</b><span id="totalTxt"></span></div>
+      <div class="bar" aria-hidden="true"><i id="totalBar"></i></div>
+    </div>
+    <nav><ol id="chList" class="chlist"></ol></nav>
+  </aside>
+
+  <main class="main" id="main" tabindex="-1"></main>
+
+  <footer class="bottom">
+    <div class="bottom-inner">
+      <div class="counter" id="counter" aria-live="polite"></div>
+      <button class="btn btn-primary btn-send" id="btnSend">Отправить правки →</button>
+    </div>
+  </footer>
+</div>
+
+<div id="modal" class="modal" hidden></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
